@@ -1,15 +1,16 @@
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { AppleMaps, GoogleMaps } from "expo-maps";
+import { Platform, StyleSheet, Text, View } from "react-native";
 
 export default function HomeScreen() {
+  if (Platform.OS === "ios") {
+    return <AppleMaps.View style={styles.container} />;
+  } else if (Platform.OS === "android") {
+    return <GoogleMaps.View style={styles.container} />;
+  }
+
   return (
     <View style={styles.container}>
-      <Pressable
-        style={styles.button}
-        onPress={() => {
-          alert('Botão pressionado!');
-        }}>
-        <Text style={styles.buttonText}>Começar</Text>
-      </Pressable>
+      <Text>Maps are only available on Android and iOS</Text>
     </View>
   );
 }
@@ -17,18 +18,18 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
   },
   button: {
-    backgroundColor: '#007AFF',
+    backgroundColor: "#007AFF",
     paddingHorizontal: 32,
     paddingVertical: 14,
     borderRadius: 12,
   },
   buttonText: {
-    color: '#fff',
+    color: "#fff",
     fontSize: 18,
-    fontWeight: '600',
+    fontWeight: "600",
   },
 });
