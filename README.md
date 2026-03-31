@@ -1,7 +1,4 @@
-# Operational Runbook — poc-location-map
-
-Generated: 2026-03-31
-Completeness Score: 100% (5 of 5 detected components covered)
+# Poc Location + Map
 
 ## Service Overview
 
